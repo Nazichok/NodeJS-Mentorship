@@ -1,0 +1,291 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "NodeJS Mentorship",
+    "version": "1.0.0",
+    "title": "eventss server",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3050",
+  "basePath": "/",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/events": {
+      "post": {
+        "tags": [
+          "events"
+        ],
+        "summary": "Add a new events to the store",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "events name that needs to be added to the list",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/events"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All events with created one"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "Get all events",
+        "description": "Returns all events",
+        "operationId": "getevents",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/events"
+            }
+          }
+        }
+      }
+    },
+    "/events/{eventsId}": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "Find events by ID",
+        "description": "Returns a single events",
+        "operationId": "geteventsById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "eventsId",
+            "in": "path",
+            "description": "ID of events to return",
+            "required": true,
+            "type": "string",
+            "format": "uuid4"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/events"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "events"
+        ],
+        "summary": "Deletes an event",
+        "description": "Returns events without deleted",
+        "operationId": "deleteEvents",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "eventsId",
+            "in": "path",
+            "description": "events id to delete",
+            "required": true,
+            "type": "string",
+            "format": "uuid4"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "$ref": "#/definitions/events"
+            }
+          }
+        }
+      }
+    },
+    "/discoveries": {
+      "post": {
+        "tags": [
+          "discoveries"
+        ],
+        "summary": "Add a new discoveries to the store",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "discoveries name that needs to be added to the list",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/discoveries"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All discoveries with created one"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "discoveries"
+        ],
+        "summary": "Get all discoveries",
+        "description": "Returns all discoveries",
+        "operationId": "getdiscoveries",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/discoveries"
+            }
+          }
+        }
+      }
+    },
+    "/discoveries/{discoveriesId}": {
+      "get": {
+        "tags": [
+          "discoveries"
+        ],
+        "summary": "Find discoveries by ID",
+        "description": "Returns a single discoveries",
+        "operationId": "getdiscoveriesById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "discoveriesId",
+            "in": "path",
+            "description": "ID of discoveries to return",
+            "required": true,
+            "type": "string",
+            "format": "uuid4"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/discoveries"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "discoveries"
+        ],
+        "summary": "Deletes an discoverie",
+        "description": "Returns discoveries without deleted",
+        "operationId": "deletediscoveries",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "discoveriesId",
+            "in": "path",
+            "description": "discoveries id to delete",
+            "required": true,
+            "type": "string",
+            "format": "uuid4"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "$ref": "#/definitions/discoveries"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "events": {
+      "type": "object",
+      "required": [
+        "name",
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid4",
+          "example": "859c4373-5dc6-4531-b519-d889412ed179"
+        },
+        "name": {
+          "type": "string",
+          "example": "Hannuka"
+        }
+      }
+    },
+    "discoveries": {
+      "type": "object",
+      "required": [
+        "city",
+        "venue",
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid4",
+          "example": "859c4373-5dc6-4531-b519-d889412ed179"
+        },
+        "city": {
+          "type": "string",
+          "example": "Majāz al Bāb"
+        },
+        "venue": {
+          "type": "string",
+          "example": "5 Eliot Circle"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

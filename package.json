@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-mentorship",
+  "version": "1.0.0",
+  "description": "",
+  "main": "JS_Tasks/simple_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nazichok/NodeJS-Mentorship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nazichok/NodeJS-Mentorship/issues"
+  },
+  "homepage": "https://github.com/Nazichok/NodeJS-Mentorship#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "swagger-ui-express": "^4.0.2",
+    "uuid": "^3.3.2"
+  }
+}

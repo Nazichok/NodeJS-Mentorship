@@ -1,3 +1,5 @@
+'use strict'
+
 /**
  * Compones arrays of objects by id or third param
  * @param {array} targetArr
@@ -15,3 +17,5 @@ function componeObj(targetArr, addedObj, componeField) {
     return result;
   });
 }
+
+module.exports = componeObj;
